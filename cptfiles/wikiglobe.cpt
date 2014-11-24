@@ -1,0 +1,49 @@
+# wiki-2.0.cpt
+#
+# extracted from Maps_template-fr.svg by Eric Gaba (Wikimedia 
+# Commons user: Sting) and others, released under the following 
+# licence:
+#
+# Permission is granted to copy, distribute and/or modify this document 
+# under the terms of the GNU Free Documentation License, Version 1.2 or 
+# any later version published by the Free Software Foundation; with no 
+# Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A 
+# copy of the license is included in the section entitled "GNU Free 
+# Documentation License".
+#
+# Translated by J.J. Green 2009, translation under same licence
+#
+# $Id: wiki-2.0.cpt.body,v 1.1 2009/05/04 15:32:51 jjg Exp $
+# COLOR_MODEL = RGB
+-10000 113 171 216 -9000  113 171 216
+-9000  121 178 222 -8000  121 178 222
+-8000  132 185 227 -7000  132 185 227
+-7000  141 193 234 -6000  141 193 234
+-6000  150 201 240 -5000  150 201 240
+-5000  161 210 247 -4000  161 210 247
+-4000  172 219 251 -3000  172 219 251
+-3000  185 227 255 -2000  185 227 255
+-2000  198 236 255 -1000  198 236 255
+-1000  216 242 254 0   216 242 254
+0   172 208 165 100   172 208 165
+100   148 191 139 200   148 191 139
+200   168 198 143 500   168 198 143
+500   189 204 150 1000   189 204 150
+1000   209 215 171 1500   209 215 171
+1500   225 228 181 2000   225 228 181
+2000   239 235 192 2500   239 235 192
+2500   232 225 182 3000   232 225 182
+3000   222 214 163 3500   222 214 163
+3500   211 202 157 4000  211 202 157
+4000  202 185 130 4500  202 185 130
+4500  195 167 107 5000  195 167 107
+5000  185 152  90 5500  185 152  90
+5500  170 135  83 6000  170 135  83
+6000  172 154 124 6500  172 154 124
+6500  186 174 154 7000  186 174 154
+7000  202 195 184 7500  202 195 184
+7500  224 222 216 8000  224 222 216
+8000  245 244 242 8500  245 244 242
+B   0   0   0
+F 255 255 255
+N 255   0   0
