@@ -17,7 +17,7 @@ function h = cptcbar(ax, map, loc, flag, varargin)
 %   flag:   if true, evenly space the colors.  If false, space according to
 %           values of each color block
 %
-% Optional input arguments
+% Optional input arguments (passed as parameter/value pairs)
 %
 %   tkint:  Label every x intervals [1]
 
@@ -48,7 +48,7 @@ else
     y2 = ctable(:,5);
     tk = [ctable(:,1); ctable(end,5)];
 end
-tklbl = cellstr(num2str([ctable(:,1); ctable(end,5)]));
+tklbl = strtrim(cellstr(num2str([ctable(:,1); ctable(end,5)])));
 
 islbl = ismember(1:length(tk), 1:Opt.tkint:length(tk));
 [tklbl{~islbl}] = deal(' ');
@@ -74,6 +74,16 @@ switch lower(loc)
         set(h.ax, 'xtick', tk, 'xticklabel', tklbl, 'xlim', minmax(tk), ...
             'ylim', [0 1], 'ytick', []);
 end
+
+switch lower(loc)
+    case {'eastoutside', 'west'}
+        set(h.ax, 'yaxislocation', 'right');
+    case {'south', 'northoutside'}
+        set(h.ax, 'xaxislocation', 'top');
+end
+
+set(h.ax, 'layer', 'top');
+
 set(h.p, 'edgecolor', 'none');
 set(cb, 'visible', 'off');
 
