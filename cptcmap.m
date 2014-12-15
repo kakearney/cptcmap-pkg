@@ -107,9 +107,23 @@ function varargout = cptcmap(varargin)
 % The .cpt file folder.  By default, the cptfiles folder is located in
 % the same place as the cptcmap.m file.  If you change this on your
 % computer, change the cptpath definition to reflect the new location.
+% 
+% The use of two separate folders here is just to make my life easier when
+% uploading this enry to github, so I can only distribute a small sample of
+% colormaps, and keep my own ones separate.  It also means users can keep
+% their own collection without worrying about their colormaps being
+% overwritten when downloading updates of this function.  The cptfiles
+% folder is included in the distribution; cptfiles_personal is not.
 
-cptpath = fullfile(fileparts(which('cptcmap')), 'cptfiles');
-if ~exist(cptpath, 'dir')
+cptpath = {...
+    fullfile(fileparts(which('cptcmap')), 'cptfiles')
+    fullfile(fileparts(which('cptcmap')), 'cptfiles_personal')};
+if ischar(cptpath)
+    cptpath = {cptpath};
+end
+isfound = logical(cellfun(@(x) exist(x, 'dir'), cptpath));
+cptpath = cptpath(isfound);
+if ~any(isfound)
     error('You have moved the cptfiles directory.  Please modify the cptpath variable in this code to point to the directory where your.cpt files are stored');
 end
 
@@ -135,12 +149,18 @@ if exist(varargin{1}, 'file')   % full filename and path given
     filename = varargin{1};
 else                            % only file name given
     [blah,blah,ext] = fileparts(varargin{1});
-    if ~isempty(ext)            % with extension
-        filename = fullfile(cptpath, varargin{1});
-    else                        % without extension
-        filename = fullfile(cptpath, [varargin{1} '.cpt']);   
+    for ii = 1:length(cptpath)
+        if ~isempty(ext)            % with extension
+            filename = fullfile(cptpath{ii}, varargin{1});
+        else                        % without extension
+            filename = fullfile(cptpath{ii}, [varargin{1} '.cpt']);   
+        end
+        if exist(filename, 'file')
+            break
+        end
     end
-    if ~exist(filename, 'file')
+         
+    if ~exist(filename, 'file') % Not found in any folders
         error('Specified .cpt file not found');
     end
 end
@@ -418,7 +438,14 @@ cmap(isnear1) = 1;
 
 function plotcmaps(folder)
 
-Files = dir(fullfile(folder, '*.cpt'));
+for ii = 1:length(folder)
+    if ii == 1
+        Files = dir(fullfile(folder{ii}, '*.cpt'));
+    else
+        Files = [Files; dir(fullfile(folder{ii}, '*.cpt'))];
+    end
+end
+
 nfile = length(Files);
 ncol = 3; 
 nr = ceil(nfile/ncol);
