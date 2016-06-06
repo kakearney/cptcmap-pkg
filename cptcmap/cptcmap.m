@@ -117,7 +117,8 @@ function varargout = cptcmap(varargin)
 
 cptpath = {...
     fullfile(fileparts(which('cptcmap')), 'cptfiles')
-    fullfile(fileparts(which('cptcmap')), 'cptfiles_personal')};
+    fullfile(fileparts(which('cptcmap')), 'cptfiles_personal')
+    };
 if ischar(cptpath)
     cptpath = {cptpath};
 end
