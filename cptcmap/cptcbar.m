@@ -1,4 +1,4 @@
-function h = cptcbar(ax, map, loc, flag, varargin)
+function varargout = cptcbar(ax, map, loc, flag, varargin)
 % Create colorbar associated with cpt colormap
 %
 % h = cptcbar(ax, map, loc, flag)
@@ -77,6 +77,7 @@ cpatch = cat(3, ctable(:,2:4), ctable(:,6:8), ctable(:,6:8), ctable(:,2:4), ctab
 cpatch = permute(cpatch, [3 1 2]);
 
 % delete(cb);
+currax = get(gcf, 'CurrentAxes');
 h.ax = axes('position', pos, 'box', 'on');
 
 switch lower(loc)
@@ -104,6 +105,12 @@ set(h.p, 'edgecolor', 'none');
 set(cb, 'visible', 'off');
 
 h.cb = cb;
+
+set(gcf, 'currentaxes', currax);
+
+if nargout > 0
+    varargout{1} = h;
+end
 
 
 
