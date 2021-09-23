@@ -4,7 +4,7 @@ Author: Kelly Kearney
 
 This function creates and applies a colormap defined in a color palette table (.cpt file). Color palette files provide more flexible colormapping than Matlab's default schemes, including both discrete and continuous gradients, as well as easier direct color mapping.
 
-For a full description of the cpt file format, see the Generic Mapping Tools documentation (http://gmt.soest.hawaii.edu/). 
+For a full description of the cpt file format, see the Generic Mapping Tools documentation (https://www.generic-mapping-tools.org). 
 
 This package includes 20 standard GMT colormaps; please see the header of each file for copyright information.   Many more color tables are available on the cpt-city website (http://soliton.vm.bytemark.co.uk/pub/cpt-city/index.html).
  
