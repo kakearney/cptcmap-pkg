@@ -1,4 +1,6 @@
 ## cptcmap.m Documentation
+Author: Kelly Kearney
+[![View Color Palette Tables (.cpt) for Matlab on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/28943-color-palette-tables-cpt-for-matlab)
 
 This function creates and applies a colormap defined in a color palette table (.cpt file). Color palette files provide more flexible colormapping than Matlab's default schemes, including both discrete and continuous gradients, as well as easier direct color mapping.
 
