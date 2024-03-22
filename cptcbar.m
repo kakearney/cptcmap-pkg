@@ -83,12 +83,12 @@ h.ax = axes('position', pos, 'box', 'on');
 switch lower(loc)
     case {'east', 'west', 'eastoutside', 'westoutside'}
         h.p = patch(xpatch, ypatch, cpatch);
-        set(h.ax, 'ytick', tk, 'yticklabel', tklbl, 'ylim', minmax(tk), ...
+        set(h.ax, 'ytick', tk, 'yticklabel', tklbl, 'ylim', [min(tk) max(tk)], ...
             'xlim', [0 1], 'xtick', []);
         
     otherwise
         h.p = patch(ypatch, xpatch, cpatch);   
-        set(h.ax, 'xtick', tk, 'xticklabel', tklbl, 'xlim', minmax(tk), ...
+        set(h.ax, 'xtick', tk, 'xticklabel', tklbl, 'xlim', [min(tk) max(tk)], ...
             'ylim', [0 1], 'ytick', []);
 end
 
