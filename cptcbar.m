@@ -40,8 +40,11 @@ function varargout = cptcbar(ax, map, loc, flag, varargin)
 
 % Copyright 2014 Kelly Kearney
 
-Opt.tkint = 1;
-Opt = parsepv(Opt, varargin);
+p = inputParser;
+p.addParameter('tkint', 1, @(x) validateattributes(x, {'numeric'}, {'integer', 'scalar'}))
+p.parse(varargin{:});
+
+Opt = p.Results;
 
 [cmap, lims, ticks, bfncol, ctable] = cptcmap(map);
 
