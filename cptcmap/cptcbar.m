@@ -40,8 +40,11 @@ function varargout = cptcbar(ax, map, loc, flag, varargin)
 
 % Copyright 2014 Kelly Kearney
 
-Opt.tkint = 1;
-Opt = parsepv(Opt, varargin);
+p = inputParser;
+p.addParameter('tkint', 1, @(x) validateattributes(x, {'numeric'}, {'integer', 'scalar'}))
+p.parse(varargin{:});
+
+Opt = p.Results;
 
 [cmap, lims, ticks, bfncol, ctable] = cptcmap(map);
 
@@ -83,12 +86,12 @@ h.ax = axes('position', pos, 'box', 'on');
 switch lower(loc)
     case {'east', 'west', 'eastoutside', 'westoutside'}
         h.p = patch(xpatch, ypatch, cpatch);
-        set(h.ax, 'ytick', tk, 'yticklabel', tklbl, 'ylim', minmax(tk), ...
+        set(h.ax, 'ytick', tk, 'yticklabel', tklbl, 'ylim', [min(tk) max(tk)], ...
             'xlim', [0 1], 'xtick', []);
         
     otherwise
         h.p = patch(ypatch, xpatch, cpatch);   
-        set(h.ax, 'xtick', tk, 'xticklabel', tklbl, 'xlim', minmax(tk), ...
+        set(h.ax, 'xtick', tk, 'xticklabel', tklbl, 'xlim', [min(tk) max(tk)], ...
             'ylim', [0 1], 'ytick', []);
 end
 
